@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+
+        <encoder>
+
+            <pattern>
+
+                %d{MM:dd HH:mm:ss.SSS} [%t] [%level] [%logger{36}] -%msg%n
+
+            </pattern>
+
+        </encoder>
+
+    </appender>
+
+    <appender name="RollingAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <file>app.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+
+            <pattern>
+
+                %d{MM:dd HH:mm:ss.SSS} [%t] [%level] [%logger{36}] -%msg%n
+
+            </pattern>
+
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+
+            <fileNamePattern>app_%d{MM:dd-mm-yyyy}.log</fileNamePattern>
+
+            <maxHistory>10</maxHistory>
+            <totalSizeCap>10KB</totalSizeCap>
+
+        </rollingPolicy>
+
+    </appender>
+
+
+    <logger name="store" level="info" additivity="false">
+
+        <appender-ref ref="ConsoleAppender" ></appender-ref>
+        <appender-ref ref="RollingAppender" ></appender-ref>
+
+    </logger>
+
+    <logger name="org.springframework.boot" level="info" additivity="false">
+        <appender-ref ref="ConsoleAppender" ></appender-ref>
+        <appender-ref ref="RollingAppender" ></appender-ref>
+    </logger>
+
+    <root level="info">
+        <appender-ref ref="ConsoleAppender" ></appender-ref>
+        <appender-ref ref="RollingAppender" ></appender-ref>
+    </root>
+
+
+</configuration>
