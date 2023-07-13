@@ -1,5 +1,6 @@
 package com.lcwd.electronic.store.services.Impl;
 
+import com.lcwd.electronic.store.dtos.PageableResponse;
 import com.lcwd.electronic.store.dtos.UserDto;
 import com.lcwd.electronic.store.entities.User;
 import com.lcwd.electronic.store.repositories.UserRepositoryI;
@@ -100,7 +101,7 @@ class UserServiceImplTest {
 
         PageRequest pageable = PageRequest.of(pageNumber, pageSize);
         Mockito.when(userRepositoryI.findAll(pageable)).thenReturn((Page<User>) user);
-        List<UserDto> allUser = userServiceImpl.getAllUser(pageNumber, pageSize);
+        PageableResponse<UserDto> allUser = userServiceImpl.getAllUser(pageNumber,pageSize);
         int actualResult = allUser.size();
         assertEquals(2, actualResult);
     }
