@@ -34,7 +34,6 @@ public class CategoryServiceImpl implements CategoryServiceI {
         Category savedCategory = categoryrepositoryI.save(category);
         return mapper.map(savedCategory, CategoryDto.class);
     }
-
     @Override
     public CategoryDto update(CategoryDto categoryDto, String categoryId) {
         //get category
@@ -56,15 +55,10 @@ public class CategoryServiceImpl implements CategoryServiceI {
 
     @Override
     public PageableResponse<CategoryDto> getAll(int pageNumber,int pageSize,String sortBy,String sortDir) {
-
         Sort sort=(sortDir.equalsIgnoreCase("desc"))?(Sort.by(sortBy).descending()):(Sort.by(sortBy).ascending());
-
         Pageable pageable= PageRequest.of(pageNumber,pageSize);
-
         Page<Category> page = categoryrepositoryI.findAll(pageable);
-
         PageableResponse<CategoryDto> pageableResponse = Helper.getPageableResponse(page,CategoryDto.class);
-
         return pageableResponse;
     }
 
