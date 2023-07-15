@@ -8,6 +8,8 @@ import com.lcwd.electronic.store.helper.Helper;
 import com.lcwd.electronic.store.repositories.CategoryrepositoryI;
 import com.lcwd.electronic.store.services.CategoryServiceI;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -24,10 +26,12 @@ public class CategoryServiceImpl implements CategoryServiceI {
     private CategoryrepositoryI categoryrepositoryI;
     @Autowired
     private ModelMapper mapper;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CategoryServiceImpl.class);
     @Override
     public CategoryDto create(CategoryDto categoryDto) {
 
-        //creating categoryId:randomly
+        //creating categoryId:randomly.
         String categoryId = UUID.randomUUID().toString();
         categoryDto.setCategoryId(categoryId);
         Category category = mapper.map(categoryDto, Category.class);
