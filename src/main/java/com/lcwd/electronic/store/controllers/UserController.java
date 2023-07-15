@@ -44,9 +44,9 @@ public class UserController {
     //create
 
     /**
+     * @author Akshay Khaire
      * @param userDto
      * @return User
-     * @author Akshay Khaire
      * @apiNote Create User
      */
     //create
@@ -59,9 +59,9 @@ public class UserController {
     }
 
     /**
+     * @author Akshay Khaire
      * @param userDto
      * @return User
-     * @author Akshay Khaire
      * @apiNote Update User
      */
     //update
@@ -76,8 +76,8 @@ public class UserController {
     }
 
     /**
-     * @param userId
      * @author Akshay Khaire
+     * @param userId
      * @apiNote Delete User
      */
     //delete
@@ -91,8 +91,8 @@ public class UserController {
     }
 
     /**
-     * @return All User
      * @author Akshay Khaire
+     * @return All User
      * @apiNote Get All User
      */
     //get all
@@ -112,9 +112,9 @@ public class UserController {
     }
 
     /**
+     * @author Akshay Khaire
      * @param userId
      * @return UserDto
-     * @author Akshay Khaire
      * @apiNote Get User By Id
      */
     //get single user by id
@@ -128,9 +128,9 @@ public class UserController {
     }
 
     /**
+     * @author Akshay Khaire
      * @param email
      * @return UserDto
-     * @author Akshay Khaire
      * @apiNote Get User By email
      */
     //get email by user
@@ -144,6 +144,7 @@ public class UserController {
     }
 
     /**
+     * @author Akshay Khaire
      * @param keywords
      * @return <List<UserDto>
      * @author Akshay Khaire
@@ -159,6 +160,13 @@ public class UserController {
         return new ResponseEntity<>(userDtoByKeyword, HttpStatus.OK);
     }
 
+    /**
+     * @author Akshay Khaire
+     * @param image
+     * @param userId
+     * @return
+     * @throws IOException
+     */
     //upload user image
     @PostMapping("/image/{userId}")
     public ResponseEntity<ImageResponse> uploadUserImage(@RequestParam("userImage") MultipartFile image, @PathVariable String userId) throws IOException {
@@ -171,6 +179,12 @@ public class UserController {
         return new ResponseEntity<>(imageResponse, HttpStatus.CREATED);
     }
 
+    /**
+     * @author Akshay Khaire
+     * @param userId
+     * @param response
+     * @throws IOException
+     */
     //serve user image
     @GetMapping(value = "/image/{userId}")
     public void serveUserImage(@PathVariable String userId, HttpServletResponse response) throws IOException {
