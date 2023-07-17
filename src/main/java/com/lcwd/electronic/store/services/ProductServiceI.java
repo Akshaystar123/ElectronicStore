@@ -21,4 +21,6 @@ public interface ProductServiceI {
     ProductDto getSingleProduct(String productId);
     //search product
     ProductDto searchProduct(String keyword);
+
+    ProductDto createProductWithCategory(ProductDto productDto,String categoryId);
 }

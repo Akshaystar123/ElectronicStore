@@ -11,12 +11,18 @@ import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.UUID;
 
 @Service
@@ -26,6 +32,9 @@ public class CategoryServiceImpl implements CategoryServiceI {
     private CategoryrepositoryI categoryrepositoryI;
     @Autowired
     private ModelMapper mapper;
+
+    @Value("${category.profile.image.path}")
+    private String imagePath;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CategoryServiceImpl.class);
     @Override
@@ -54,6 +63,16 @@ public class CategoryServiceImpl implements CategoryServiceI {
     @Override
     public void delete(String categoryId) {
         Category category = categoryrepositoryI.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category not found exception"));
+        String fullPath = imagePath + category.getCoverImage();
+        try {
+            Path path = Paths.get(fullPath);
+            Files.delete(path);
+        } catch (NoSuchFileException ex) {
+            ex.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
          categoryrepositoryI.delete(category);
     }
 
@@ -68,7 +87,6 @@ public class CategoryServiceImpl implements CategoryServiceI {
 
     @Override
     public CategoryDto get(String categoryId) {
-
         Category category = categoryrepositoryI.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException("Category not found exception"));
         return mapper.map(category,CategoryDto.class);
     }

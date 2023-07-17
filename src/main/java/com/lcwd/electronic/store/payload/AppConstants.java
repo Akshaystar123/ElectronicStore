@@ -7,4 +7,5 @@ public class AppConstants {
     public static final String PRODUCT_NOT_FOUND = "Product not found with given id:";
 
     public static final String DELETE_PRODUCT = "Product is deleted successfully..!!";
+    public static final String CATEGORY_NOT_FOUND ="Category not found with id:" ;
 }

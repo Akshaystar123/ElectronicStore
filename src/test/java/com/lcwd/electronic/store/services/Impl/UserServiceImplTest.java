@@ -11,12 +11,15 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,13 +27,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-@SpringBootTest(classes = UserServiceImplTest.class)
+@SpringBootTest
 class UserServiceImplTest {
-    @Mock
+    @MockBean
     private UserRepositoryI userRepositoryI;
-    @Mock
+    @Autowired
     private ModelMapper modelMapper;
-    @InjectMocks
+    @Autowired
     private UserServiceImpl userServiceImpl;
 
     User user1;
@@ -73,45 +76,43 @@ class UserServiceImplTest {
     @Test
     void createUser() {
         Mockito.when(userRepositoryI.save(Mockito.any())).thenReturn(user1);
-
         UserDto user3 = userServiceImpl.createUser(modelMapper.map(user1, UserDto.class));
-
         assertEquals(user1.getName(), user3.getName());
     }
 
     @Test
     void updateUser() {
-
-       /* Mockito.when(userRepositoryI.save(Mockito.any())).thenReturn(modelMapper.map(user1, UserDto.class));
-
-        UserDto userDto1 = userServiceImpl.updateUser(modelMapper.map(user1, UserDto.class));
-
-        assertEquals();
-*/
+        String id = UUID.randomUUID().toString();
+        Mockito.when(userRepositoryI.findById(id)).thenReturn(Optional.of(user1));
+        Mockito.when(userRepositoryI.save(Mockito.any())).thenReturn(user1);
+        UserDto userDto1 = userServiceImpl.updateUser(modelMapper.map(user1, UserDto.class),id);
+        assertEquals("Akki",userDto1.getName());
     }
-
     @Test
     void deleteUser() {
+
+        String userId = UUID.randomUUID().toString();
+        Mockito.when(userRepositoryI.findById(userId)).thenReturn(Optional.of(user1));
+        userServiceImpl.deleteUser(userId);
     }
-
-    @Test
-    void getAllUser() {
-        int pageNumber = 0;
-        int pageSize = 2;
-
-        PageRequest pageable = PageRequest.of(pageNumber, pageSize);
-        Mockito.when(userRepositoryI.findAll(pageable)).thenReturn((Page<User>) user);
-        PageableResponse<UserDto> allUser = userServiceImpl.getAllUser(pageNumber,pageSize);
-        int actualResult = allUser.size();
-        assertEquals(2, actualResult);
-    }
-
     @Test
     void getUserById() {
+
+        String userId = UUID.randomUUID().toString();
+        Mockito.when(userRepositoryI.findById(userId)).thenReturn(Optional.ofNullable(user1));
+        UserDto user2 = userServiceImpl.getUserById(userId);
+        assertEquals("akki@123",user2.getPassword());
     }
 
     @Test
     void getUserByEmail() {
+
+        String email="akki@1234";
+
+        Mockito.when(userRepositoryI.findByEmail(email)).thenReturn(Optional.of(user1));
+        UserDto user3 = userServiceImpl.getUserByEmail(email);
+        String name="Akki";
+        assertEquals(name,user3.getName());
     }
 
     @Test

@@ -39,7 +39,7 @@ public class UserController {
     @Value("${user.profile.image.path}")
     private String imageFullPath;
 
-    private Logger logger = LoggerFactory.getLogger(UserController.class);
+ //   private Logger logger = LoggerFactory.getLogger(UserController.class);
 
     //create
 
@@ -170,12 +170,14 @@ public class UserController {
     //upload user image
     @PostMapping("/image/{userId}")
     public ResponseEntity<ImageResponse> uploadUserImage(@RequestParam("userImage") MultipartFile image, @PathVariable String userId) throws IOException {
+        log.info("Initiating request for upload user image");
         String imageName = fileServiceI.uploadFile(image, imageFullPath);
         UserDto user = userServiceI.getUserById(userId);
         user.setImageName(imageName);
         userServiceI.updateUser(user, userId);
         ImageResponse imageResponse = ImageResponse.builder().imageName(imageName).multipartFile(imageName)
                 .success(true).message("Image uploaded successfully").status(HttpStatus.CREATED).build();
+        log.info("Completed request for upload user image");
         return new ResponseEntity<>(imageResponse, HttpStatus.CREATED);
     }
 
@@ -188,9 +190,10 @@ public class UserController {
     //serve user image
     @GetMapping(value = "/image/{userId}")
     public void serveUserImage(@PathVariable String userId, HttpServletResponse response) throws IOException {
+       log.info("Initiating request for serve(get) user image");
         UserDto user = userServiceI.getUserById(userId);
-        logger.info("User image name : {} ", user.getImageName());
         InputStream resource = fileServiceI.getResource(imageFullPath, user.getImageName());
+        log.info("Completed request for serve(get) user image");
         response.setContentType(MediaType.IMAGE_JPEG_VALUE);
         StreamUtils.copy(resource, response.getOutputStream());
     }
