@@ -8,8 +8,6 @@ import com.lcwd.electronic.store.payload.AppConstants;
 import com.lcwd.electronic.store.services.FileServiceI;
 import com.lcwd.electronic.store.services.UserServiceI;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -166,6 +164,7 @@ public class UserController {
      * @param userId
      * @return
      * @throws IOException
+     * @apiNote upload user image
      */
     //upload user image
     @PostMapping("/image/{userId}")
@@ -176,7 +175,7 @@ public class UserController {
         user.setImageName(imageName);
         userServiceI.updateUser(user, userId);
         ImageResponse imageResponse = ImageResponse.builder().imageName(imageName).multipartFile(imageName)
-                .success(true).message("Image uploaded successfully").status(HttpStatus.CREATED).build();
+                .success(true).message(AppConstants.IMAGE_UPLOADED).status(HttpStatus.CREATED).build();
         log.info("Completed request for upload user image");
         return new ResponseEntity<>(imageResponse, HttpStatus.CREATED);
     }
@@ -186,6 +185,7 @@ public class UserController {
      * @param userId
      * @param response
      * @throws IOException
+     * @apiNote get user upload image
      */
     //serve user image
     @GetMapping(value = "/image/{userId}")

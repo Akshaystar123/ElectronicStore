@@ -1,7 +1,9 @@
 package com.lcwd.electronic.store.services.Impl;
 
 import com.lcwd.electronic.store.exceptions.BadApiRequest;
+import com.lcwd.electronic.store.payload.AppConstants;
 import com.lcwd.electronic.store.services.FileServiceI;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -37,12 +39,11 @@ public class FileServiceImpl implements FileServiceI {
                 //creating an folder
                 folder.mkdirs();
             }
-
             Files.copy(file.getInputStream(), Paths.get(fullPathWithFileName));
             return fileNameWithExtension;
 
         } else {
-            throw new BadApiRequest("File with exrension: " + extension + " not allowed");
+            throw new BadApiRequest(AppConstants.INVALID_EXTESION_FILE+extension);
         }
     }
     @Override

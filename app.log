@@ -12033,3 +12033,177 @@ Caused by: org.hibernate.AnnotationException: Illegal attempt to map a non colle
 07:18 02:04:50.892 [SpringApplicationShutdownHook] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
 07:18 02:04:50.899 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
 07:18 02:04:50.918 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:18 02:05:04.719 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:18 02:05:04.730 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -Starting ElectronicStoreApplication using Java 17.0.7 on VIM with PID 17572 (D:\Java Development 2022 Bikkad IT\Electronic_Store\ElectronicStore\target\classes started by Akki in D:\Java Development 2022 Bikkad IT\Electronic_Store\ElectronicStore)
+07:18 02:05:04.735 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:18 02:05:04.917 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:18 02:05:04.918 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:18 02:05:06.891 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:18 02:05:07.090 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 177 ms. Found 3 JPA repository interfaces.
+07:18 02:05:08.772 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 9191 (http)
+07:18 02:05:08.792 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-9191"]
+07:18 02:05:08.795 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:18 02:05:08.796 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:18 02:05:09.206 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:18 02:05:09.207 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 4288 ms
+07:18 02:05:09.623 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:18 02:05:09.744 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:18 02:05:10.152 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:18 02:05:10.434 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:18 02:05:11.489 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:18 02:05:11.592 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:18 02:05:13.491 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:18 02:05:13.505 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:18 02:05:14.458 [restartedMain] [WARN] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] -spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07:18 02:05:15.038 [restartedMain] [INFO] [o.s.b.d.a.OptionalLiveReloadServer] -LiveReload server is running on port 35729
+07:18 02:05:15.059 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Starting ProtocolHandler ["http-nio-9191"]
+07:18 02:05:15.102 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat started on port(s): 9191 (http) with context path ''
+07:18 02:05:15.121 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -Started ElectronicStoreApplication in 11.248 seconds (JVM running for 13.248)
+07:18 02:05:33.251 [http-nio-9191-exec-1] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+07:18 02:05:33.251 [http-nio-9191-exec-1] [INFO] [o.s.web.servlet.DispatcherServlet] -Initializing Servlet 'dispatcherServlet'
+07:18 02:05:33.254 [http-nio-9191-exec-1] [INFO] [o.s.web.servlet.DispatcherServlet] -Completed initialization in 3 ms
+07:18 02:05:33.392 [http-nio-9191-exec-1] [INFO] [c.l.e.s.controllers.UserController] -Initiating request to get all Category
+07:18 02:05:33.997 [http-nio-9191-exec-1] [INFO] [c.l.e.s.controllers.UserController] -Completed request of grt all Category
+07:18 02:05:56.072 [http-nio-9191-exec-3] [INFO] [c.l.e.s.controllers.UserController] -Initiating request to get all Category
+07:18 02:05:56.092 [http-nio-9191-exec-3] [INFO] [c.l.e.s.controllers.UserController] -Completed request of grt all Category
+07:18 02:52:10.556 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=22m58s367ms559µs800ns).
+07:18 02:57:34.971 [SpringApplicationShutdownHook] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:18 02:57:34.982 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:18 02:57:34.997 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:18 09:16:54.357 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:18 09:16:54.357 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -Starting ElectronicStoreApplication using Java 17.0.7 on VIM with PID 12516 (D:\Java Development 2022 Bikkad IT\Electronic_Store\ElectronicStore\target\classes started by Akki in D:\Java Development 2022 Bikkad IT\Electronic_Store\ElectronicStore)
+07:18 09:16:54.373 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:18 09:16:54.622 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:18 09:16:54.626 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:18 09:16:56.670 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:18 09:16:56.859 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 167 ms. Found 3 JPA repository interfaces.
+07:18 09:16:59.043 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 9191 (http)
+07:18 09:16:59.068 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-9191"]
+07:18 09:16:59.115 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:18 09:16:59.117 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:18 09:17:00.594 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:18 09:17:00.623 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 5995 ms
+07:18 09:17:01.826 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:18 09:17:02.094 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:18 09:17:02.867 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:18 09:17:03.208 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:18 09:17:04.284 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:18 09:17:04.380 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:18 09:17:06.941 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:18 09:17:06.962 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:18 09:17:08.689 [restartedMain] [WARN] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] -spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07:18 09:17:09.555 [restartedMain] [INFO] [o.s.b.d.a.OptionalLiveReloadServer] -LiveReload server is running on port 35729
+07:18 09:17:09.613 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Starting ProtocolHandler ["http-nio-9191"]
+07:18 09:17:09.691 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat started on port(s): 9191 (http) with context path ''
+07:18 09:17:09.718 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -Started ElectronicStoreApplication in 16.177 seconds (JVM running for 18.421)
+07:18 09:20:03.467 [http-nio-9191-exec-2] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+07:18 09:20:03.469 [http-nio-9191-exec-2] [INFO] [o.s.web.servlet.DispatcherServlet] -Initializing Servlet 'dispatcherServlet'
+07:18 09:20:03.472 [http-nio-9191-exec-2] [INFO] [o.s.web.servlet.DispatcherServlet] -Completed initialization in 2 ms
+07:18 09:32:52.370 [SpringApplicationShutdownHook] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:18 09:32:52.388 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:18 09:32:52.431 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:18 09:33:05.305 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:18 09:33:05.305 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -Starting ElectronicStoreApplication using Java 17.0.7 on VIM with PID 3280 (D:\Java Development 2022 Bikkad IT\Electronic_Store\ElectronicStore\target\classes started by Akki in D:\Java Development 2022 Bikkad IT\Electronic_Store\ElectronicStore)
+07:18 09:33:05.321 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:18 09:33:05.516 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:18 09:33:05.517 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:18 09:33:07.301 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:18 09:33:07.475 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 153 ms. Found 3 JPA repository interfaces.
+07:18 09:33:09.327 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 9191 (http)
+07:18 09:33:09.345 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-9191"]
+07:18 09:33:09.349 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:18 09:33:09.350 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:18 09:33:09.785 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:18 09:33:09.786 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 4266 ms
+07:18 09:33:10.626 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:18 09:33:10.769 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:18 09:33:11.300 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:18 09:33:11.545 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:18 09:33:13.776 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:18 09:33:13.881 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:18 09:33:18.138 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:18 09:33:18.182 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:18 09:33:19.579 [restartedMain] [WARN] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] -spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07:18 09:33:20.197 [restartedMain] [INFO] [o.s.b.d.a.OptionalLiveReloadServer] -LiveReload server is running on port 35729
+07:18 09:33:20.232 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Starting ProtocolHandler ["http-nio-9191"]
+07:18 09:33:20.391 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat started on port(s): 9191 (http) with context path ''
+07:18 09:33:20.435 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -Started ElectronicStoreApplication in 15.9 seconds (JVM running for 17.696)
+07:18 09:33:22.602 [http-nio-9191-exec-2] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+07:18 09:33:22.603 [http-nio-9191-exec-2] [INFO] [o.s.web.servlet.DispatcherServlet] -Initializing Servlet 'dispatcherServlet'
+07:18 09:33:22.606 [http-nio-9191-exec-2] [INFO] [o.s.web.servlet.DispatcherServlet] -Completed initialization in 2 ms
+07:18 09:33:22.682 [http-nio-9191-exec-2] [INFO] [c.l.e.s.controllers.UserController] -Initiating request to delete Category
+07:18 09:33:23.093 [http-nio-9191-exec-2] [INFO] [c.l.e.s.controllers.UserController] -Completed request of delete Category
+07:18 09:51:35.494 [http-nio-9191-exec-6] [INFO] [c.l.e.s.s.Impl.FileServiceImpl] -file name signature.pdf
+07:18 09:51:35.501 [http-nio-9191-exec-6] [INFO] [c.l.e.s.s.Impl.FileServiceImpl] -full image path: images/product/\7cc1c26a-14a5-48cf-88a1-10dbcea674d6.pdf 
+07:18 09:51:35.507 [http-nio-9191-exec-6] [INFO] [c.l.e.s.e.GlobalExceptionHandler] -BadApiRequest handler invoked !!
+07:18 09:51:35.510 [http-nio-9191-exec-6] [WARN] [o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver] -Resolved [com.lcwd.electronic.store.exceptions.BadApiRequest: File with exrension: .pdf not allowed]
+07:18 09:52:57.316 [SpringApplicationShutdownHook] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:18 09:52:57.347 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:18 09:52:57.398 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
+07:18 09:53:13.069 [background-preinit] [INFO] [o.h.validator.internal.util.Version] -HV000001: Hibernate Validator 6.2.5.Final
+07:18 09:53:13.081 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -Starting ElectronicStoreApplication using Java 17.0.7 on VIM with PID 9204 (D:\Java Development 2022 Bikkad IT\Electronic_Store\ElectronicStore\target\classes started by Akki in D:\Java Development 2022 Bikkad IT\Electronic_Store\ElectronicStore)
+07:18 09:53:13.088 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -No active profile set, falling back to 1 default profile: "default"
+07:18 09:53:13.268 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+07:18 09:53:13.268 [restartedMain] [INFO] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+07:18 09:53:16.103 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+07:18 09:53:16.293 [restartedMain] [INFO] [o.s.d.r.c.RepositoryConfigurationDelegate] -Finished Spring Data repository scanning in 168 ms. Found 3 JPA repository interfaces.
+07:18 09:53:18.347 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat initialized with port(s): 9191 (http)
+07:18 09:53:18.373 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Initializing ProtocolHandler ["http-nio-9191"]
+07:18 09:53:18.377 [restartedMain] [INFO] [o.a.catalina.core.StandardService] -Starting service [Tomcat]
+07:18 09:53:18.377 [restartedMain] [INFO] [o.a.catalina.core.StandardEngine] -Starting Servlet engine: [Apache Tomcat/9.0.76]
+07:18 09:53:18.873 [restartedMain] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring embedded WebApplicationContext
+07:18 09:53:18.873 [restartedMain] [INFO] [o.s.b.w.s.c.ServletWebServerApplicationContext] -Root WebApplicationContext: initialization completed in 5603 ms
+07:18 09:53:19.344 [restartedMain] [INFO] [o.h.jpa.internal.util.LogHelper] -HHH000204: Processing PersistenceUnitInfo [name: default]
+07:18 09:53:19.521 [restartedMain] [INFO] [org.hibernate.Version] -HHH000412: Hibernate ORM core version 5.6.15.Final
+07:18 09:53:20.040 [restartedMain] [INFO] [o.h.annotations.common.Version] -HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+07:18 09:53:20.379 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Starting...
+07:18 09:53:21.400 [restartedMain] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Start completed.
+07:18 09:53:21.480 [restartedMain] [INFO] [org.hibernate.dialect.Dialect] -HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+07:18 09:53:24.051 [restartedMain] [INFO] [o.h.e.t.j.p.i.JtaPlatformInitiator] -HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+07:18 09:53:24.079 [restartedMain] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Initialized JPA EntityManagerFactory for persistence unit 'default'
+07:18 09:53:25.572 [restartedMain] [WARN] [o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] -spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+07:18 09:53:26.756 [restartedMain] [INFO] [o.s.b.d.a.OptionalLiveReloadServer] -LiveReload server is running on port 35729
+07:18 09:53:26.790 [restartedMain] [INFO] [o.a.coyote.http11.Http11NioProtocol] -Starting ProtocolHandler ["http-nio-9191"]
+07:18 09:53:26.848 [restartedMain] [INFO] [o.s.b.w.e.tomcat.TomcatWebServer] -Tomcat started on port(s): 9191 (http) with context path ''
+07:18 09:53:26.879 [restartedMain] [INFO] [c.l.e.s.ElectronicStoreApplication] -Started ElectronicStoreApplication in 14.674 seconds (JVM running for 16.508)
+07:18 09:53:28.251 [http-nio-9191-exec-2] [INFO] [o.a.c.c.C.[Tomcat].[localhost].[/]] -Initializing Spring DispatcherServlet 'dispatcherServlet'
+07:18 09:53:28.252 [http-nio-9191-exec-2] [INFO] [o.s.web.servlet.DispatcherServlet] -Initializing Servlet 'dispatcherServlet'
+07:18 09:53:28.255 [http-nio-9191-exec-2] [INFO] [o.s.web.servlet.DispatcherServlet] -Completed initialization in 2 ms
+07:18 09:53:28.752 [http-nio-9191-exec-2] [INFO] [c.l.e.s.s.Impl.FileServiceImpl] -file name signature.pdf
+07:18 09:53:28.754 [http-nio-9191-exec-2] [INFO] [c.l.e.s.s.Impl.FileServiceImpl] -full image path: images/product/\6a0438c4-4c05-4143-aa4b-25254723f19a.pdf 
+07:18 09:53:28.776 [http-nio-9191-exec-2] [INFO] [c.l.e.s.e.GlobalExceptionHandler] -BadApiRequest handler invoked !!
+07:18 09:53:29.050 [http-nio-9191-exec-2] [WARN] [o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver] -Resolved [com.lcwd.electronic.store.exceptions.BadApiRequest: Extension not allowed.pdf]
+07:18 17:17:59.680 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m58s242ms788µs100ns).
+07:18 22:42:00.396 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h24m45s411ms197µs600ns).
+07:19 00:36:19.141 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h24m48s150ms516µs).
+07:19 04:34:21.483 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h59m30s895ms214µs800ns).
+07:19 07:37:24.732 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h2m8s690ms665µs300ns).
+07:19 08:48:19.812 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m23s852ms897µs).
+07:19 11:42:44.760 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m22s21ms990µs).
+07:19 12:17:34.906 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m19s659ms531µs100ns).
+07:19 15:13:51.907 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h37m16s682ms500µs800ns).
+07:19 16:36:19.038 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m55s771ms231µs500ns).
+07:19 18:51:24.514 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m32s294ms919µs900ns).
+07:19 20:45:04.856 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=42m8s169ms737µs600ns).
+07:19 21:29:22.954 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m17s146ms390µs200ns).
+07:20 05:17:24.973 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h7m57s178ms655µs400ns).
+07:20 05:59:49.157 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m53s587ms722µs500ns).
+07:20 06:45:12.731 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=38m53s298ms685µs700ns).
+07:20 07:23:42.726 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m29s351ms486µs600ns).
+07:20 11:30:43.211 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m48s73ms438µs600ns).
+07:20 12:28:24.267 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m40s58ms296µs900ns).
+07:20 13:04:11.652 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m16s694ms188µs100ns).
+07:20 14:18:12.680 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=38m30s482ms780µs400ns).
+07:20 15:20:10.979 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m57s662ms25µs300ns).
+07:20 17:36:46.846 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=36m34s22ms590µs600ns).
+07:20 22:22:06.120 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h36m14s288ms585µs400ns).
+07:20 23:19:55.754 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m18s695ms732µs500ns).
+07:21 01:26:26.464 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m28s584ms26µs900ns).
+07:21 08:26:49.166 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h51m52s317ms857µs900ns).
+07:21 08:55:49.676 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m73ms955µs).
+07:21 09:25:12.244 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m52s189ms969µs400ns).
+07:21 11:29:30.590 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m15s715ms66µs).
+07:21 11:50:15.528 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m44s419ms495µs601ns).
+07:21 12:58:36.987 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m50s223ms339µs300ns).
+07:21 14:56:38.576 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m57s669ms20µs).
+07:21 16:59:15.387 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m4s730ms361µs900ns).
