@@ -44,31 +44,31 @@ public class CategoryServiceImpl implements CategoryServiceI {
     public CategoryDto create(CategoryDto categoryDto) {
 
         //creating categoryId:randomly.
-        log.info("Sending dao call to create category");
+        log.info("Sending dao call to create category:{}",categoryDto.getTitle());
         String categoryId = UUID.randomUUID().toString();
         categoryDto.setCategoryId(categoryId);
         Category category = mapper.map(categoryDto, Category.class);
         Category savedCategory = categoryrepositoryI.save(category);
-        log.info("Completed dao call to successful create category");
+        log.info("Completed dao call to successful create category:{}",categoryDto.getTitle());
         return mapper.map(savedCategory, CategoryDto.class);
     }
     @Override
     public CategoryDto update(CategoryDto categoryDto, String categoryId) {
         //get category
-        log.info("Sending dao call to update category");
+        log.info("Sending dao call to update category:{}",categoryId);
         Category category = categoryrepositoryI.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException(AppConstants.CATEGORY_NOT_FOUND));
         //updates category details
         category.setTitle(categoryDto.getTitle());
         category.setDescription(categoryDto.getDescription());
         category.setCoverImage(categoryDto.getCoverImage());
         Category updatedCategory = categoryrepositoryI.save(category);
-        log.info("Completed dao call to successful update category");
+        log.info("Completed dao call to successful update category:{}",categoryId);
         return mapper.map(updatedCategory,CategoryDto.class);
     }
 
     @Override
     public void delete(String categoryId) {
-        log.info("Sending dao call to update category");
+        log.info("Sending dao call to update category:{}",categoryId);
         Category category = categoryrepositoryI.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException(AppConstants.DELETE_CATEGORY));
         String fullPath = imagePath + category.getCoverImage();
         try {
@@ -80,7 +80,7 @@ public class CategoryServiceImpl implements CategoryServiceI {
             e.printStackTrace();
         }
          categoryrepositoryI.delete(category);
-        log.info("Completed dao call to successful delete category");
+        log.info("Completed dao call to successful delete category:{}",categoryId);
     }
 
     @Override
@@ -96,9 +96,9 @@ public class CategoryServiceImpl implements CategoryServiceI {
 
     @Override
     public CategoryDto get(String categoryId) {
-        log.info("Sending dao call to get category");
+        log.info("Sending dao call to get category:{}",categoryId);
         Category category = categoryrepositoryI.findById(categoryId).orElseThrow(() -> new ResourceNotFoundException(AppConstants.CATEGORY_NOT_FOUND));
-        log.info("Completed dao call to successful get category");
+        log.info("Completed dao call to successful get category:{}",categoryId);
         return mapper.map(category,CategoryDto.class);
     }
 }
