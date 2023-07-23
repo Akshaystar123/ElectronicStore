@@ -14,19 +14,14 @@ public class Helper {
     public static <U, V> PageableResponse<V> getPageableResponse(Page<U> page, Class<V> type) {
 
         List<U> entitis = page.getContent();
-
-
         List<V> dtoList = entitis.stream().map(entity -> new ModelMapper().map(entity, type)).collect(Collectors.toList());
-
         PageableResponse<V> response = new PageableResponse<>();
-
         response.setContent(dtoList);
         response.setPageNumber(page.getNumber());
         response.setPageSize(page.getSize());
         response.setTotalElements((int) page.getTotalElements());
         response.setTotalPages(page.getTotalPages());
         response.setLastPage(page.isLast());
-
         return response;
     }
 

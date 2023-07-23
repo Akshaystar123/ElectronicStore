@@ -12207,3 +12207,15 @@ Caused by: org.hibernate.AnnotationException: Illegal attempt to map a non colle
 07:21 12:58:36.987 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m50s223ms339µs300ns).
 07:21 14:56:38.576 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m57s669ms20µs).
 07:21 16:59:15.387 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m4s730ms361µs900ns).
+07:21 17:21:27.957 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m42s420ms804µs600ns).
+07:21 21:51:06.428 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=43m4s668ms27µs100ns).
+07:22 00:59:40.303 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h10m1s640ms899µs600ns).
+07:22 03:03:14.483 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m32s247ms290µs600ns).
+07:22 12:02:05.327 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h59m49s764ms251µs400ns).
+07:22 13:47:10.237 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m33s157ms817µs800ns).
+07:22 17:18:55.269 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=34m40s159ms707µs100ns).
+07:22 17:59:14.456 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m18s712ms372µs900ns).
+07:23 01:21:34.589 [HikariPool-1 housekeeper] [WARN] [com.zaxxer.hikari.pool.HikariPool] -HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h25m47s86ms193µs100ns).
+07:23 02:47:55.300 [SpringApplicationShutdownHook] [INFO] [o.s.o.j.LocalContainerEntityManagerFactoryBean] -Closing JPA EntityManagerFactory for persistence unit 'default'
+07:23 02:47:55.487 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown initiated...
+07:23 02:47:55.524 [SpringApplicationShutdownHook] [INFO] [com.zaxxer.hikari.HikariDataSource] -HikariPool-1 - Shutdown completed.
