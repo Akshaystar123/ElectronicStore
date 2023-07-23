@@ -38,20 +38,6 @@ public class UserServiceImpl implements UserServiceI {
     @Value("${user.profile.image.path}")
     private String imagePath;
 
-    @Override
-    public UserDto createUser(UserDto userDto) {
-
-        //generate userId in string format
-        String userId = UUID.randomUUID().toString();
-        userDto.setUserId(userId);
-        //dto to entity
-        User user = dtoToEntity(userDto);
-        User saveUser = userRepositoryI.save(user);
-        //dto to entity
-        UserDto newDto = entityToDto(saveUser);
-        return newDto;
-    }
-
     private UserDto entityToDto(User saveUser) {
 
         return mapper.map(saveUser, UserDto.class);
@@ -63,9 +49,23 @@ public class UserServiceImpl implements UserServiceI {
     }
 
     @Override
+    public UserDto createUser(UserDto userDto) {
+        log.info("Sending dao call to update user{}",userDto.getName());
+        //generate userId in string format
+        String userId = UUID.randomUUID().toString();
+        userDto.setUserId(userId);
+        //dto to entity
+        User user = dtoToEntity(userDto);
+        User saveUser = userRepositoryI.save(user);
+        //dto to entity
+        UserDto newDto = entityToDto(saveUser);
+        log.info("Sending dao call to update user{}",userDto.getName());
+        return newDto;
+    }
+    @Override
     public UserDto updateUser(UserDto userDto, String userId) {
 
-        log.info("Sending dao call to update user");
+        log.info("Sending dao call to update user{}",userId);
         User user = userRepositoryI.findById(userId).orElseThrow(() -> new ResourceNotFoundException(AppConstants.NOT_FOUND));
         user.setName(userDto.getName());
         //email update
@@ -76,13 +76,13 @@ public class UserServiceImpl implements UserServiceI {
         user.setImageName(userDto.getImageName());
         User updatedUser = userRepositoryI.save(user);
         UserDto updatedDto = entityToDto(updatedUser);
-        log.info("Completed dao call to successful update user");
+        log.info("Completed dao call to successful update user{}",userId);
         return updatedDto;
     }
 
     @Override
     public void deleteUser(String userId) {
-        log.info("Sending dao call to delete user");
+        log.info("Sending dao call to delete user{}",userId);
         User user = userRepositoryI.findById(userId).orElseThrow(() -> new ResourceNotFoundException(AppConstants.NOT_FOUND));
         String fullPath = imagePath + user.getImageName();
         try {
@@ -95,7 +95,7 @@ public class UserServiceImpl implements UserServiceI {
         }
         //delete user
         userRepositoryI.delete(user);
-        log.info("Completed dao call to successful delete user");
+        log.info("Completed dao call to successful delete user{}",userId);
     }
 
     @Override
@@ -112,26 +112,26 @@ public class UserServiceImpl implements UserServiceI {
 
     @Override
     public UserDto getUserById(String userId) {
-        log.info("Sending dao call to get single user");
+        log.info("Sending dao call to get single user{}",userId);
         User user = userRepositoryI.findById(userId).orElseThrow(() -> new ResourceNotFoundException(AppConstants.NOT_FOUND));
-        log.info("Completed dao call to successful get single user");
+        log.info("Completed dao call to successful get single user{}",userId);
         return entityToDto(user);
     }
 
     @Override
     public UserDto getUserByEmail(String email) {
-        log.info("Sending dao call to get single user by email");
+        log.info("Sending dao call to get single user by email{}",email);
         User user = userRepositoryI.findByEmail(email).orElseThrow(() -> new ResourceNotFoundException(AppConstants.ENTER_VALID_MAILID));
-        log.info("Completed dao call to successful get single user by email");
+        log.info("Completed dao call to successful get single user by email{}",email);
         return entityToDto(user);
     }
 
     @Override
     public List<UserDto> searchUser(String keyword) {
-        log.info("Sending dao call to get single user by keyword");
+        log.info("Sending dao call to get single user by keyword{}",keyword);
         List<User> users = userRepositoryI.findByNameContaining(keyword);
         List<UserDto> dtoList = users.stream().map(user -> entityToDto(user)).collect(Collectors.toList());
-        log.info("Completed dao call to successful get single user by keyword");
+        log.info("Completed dao call to successful get single user by keyword{}",keyword);
         return dtoList;
     }
 }
