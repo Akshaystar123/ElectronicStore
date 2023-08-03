@@ -91,6 +91,7 @@ class CategoryServiceImplTest {
 
     @Test
     void delete() {
+
     }
 
     @Test
@@ -99,5 +100,12 @@ class CategoryServiceImplTest {
 
     @Test
     void get() {
+
+        String categoryId=UUID.randomUUID().toString();
+        Mockito.when(categoryRepositoryI.findById(categoryId)).thenReturn(Optional.of(category1));
+
+        CategoryDto categoryDto1 = categorySeviceImpl.get(categoryId);
+
+        Assertions.assertEquals(category1.getTitle(),categoryDto1.getTitle());
     }
 }
