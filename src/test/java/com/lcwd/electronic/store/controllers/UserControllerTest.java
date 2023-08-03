@@ -178,7 +178,21 @@ return null;
     }
 
     @Test
-    void getUserByEmail() {
+    void getUserByEmail() throws Exception{
+
+        String email="sahil@gmail.com";
+
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+
+        Mockito.when(userServiceI.getUserByEmail(email)).thenReturn(userDto);
+
+        mockMvc.perform(
+                        MockMvcRequestBuilders.get("/users/email/" +email)
+                                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+                //.andExpect(jsonPath("$.email").exists());
+
     }
 
     @Test
