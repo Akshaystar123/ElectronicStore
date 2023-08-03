@@ -98,7 +98,7 @@ public class ProductServiceImpl implements ProductServiceI {
     @Override
     public PageableResponse<ProductDto> getAllProducts(int pageNumber, int pageSize, String sortBy, String sortDir) {
         log.info("Sending dao call to get all product");
-        Sort sort = (sortBy.equalsIgnoreCase("asc"))?(Sort.by(sortDir).ascending()):(Sort.by(sortDir).descending());
+        Sort sort=(sortDir.equalsIgnoreCase("asc"))?(Sort.by(sortBy).ascending()):(Sort.by(sortBy).descending());
         Pageable pageable = PageRequest.of(pageNumber,pageSize,sort);
         Page<Product> page = productRepositoryI.findAll(pageable);
         PageableResponse<ProductDto> pageableResponse = Helper.getPageableResponse(page, ProductDto.class);

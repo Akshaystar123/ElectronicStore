@@ -2,6 +2,7 @@ package com.lcwd.electronic.store.entities;
 
 import javax.persistence.*;
 
+/*
 @Entity
 @Table(name = "cart_items")
 public class CartItem {
@@ -17,3 +18,4 @@ public class CartItem {
 
     //mapping cart
 }
+*/

@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import java.util.Date;
 
-@Entity
+/*@Entity
 public class Cart {
 
     @Id
@@ -13,4 +13,4 @@ public class Cart {
     private Date createdDate;
     @OneToOne
     private User user;
-}
+}*/

@@ -99,9 +99,9 @@ public class UserServiceImpl implements UserServiceI {
     }
 
     @Override
-    public PageableResponse<UserDto> getAllUser(int pageNumber, int pageSize, String sortBy, String SortDir) {
+    public PageableResponse<UserDto> getAllUser(int pageNumber, int pageSize, String sortBy, String sortDir) {
         log.info("Sending dao call to get all user");
-        Sort sort = (sortBy.equalsIgnoreCase("asc")) ? (Sort.by(sortBy).ascending()) : (Sort.by(sortBy).descending());
+        Sort sort = (sortDir.equalsIgnoreCase("asc")) ? (Sort.by(sortBy).ascending()) : (Sort.by(sortBy).descending());
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
         Page<User> page = userRepositoryI.findAll(pageable);
         PageableResponse<UserDto> response = Helper.getPageableResponse(page, UserDto.class);
