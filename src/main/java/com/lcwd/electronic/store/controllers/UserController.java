@@ -154,7 +154,6 @@ public class UserController {
         log.info("Initiating request to search by keyword:{}",keywords);
         List<UserDto> userDtoByKeyword = userServiceI.searchUser(keywords);
         log.info("Completed request of search by keyword:{}",keywords);
-
         return new ResponseEntity<>(userDtoByKeyword, HttpStatus.OK);
     }
 

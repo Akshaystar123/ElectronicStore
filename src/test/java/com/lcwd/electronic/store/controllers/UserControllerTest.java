@@ -4,11 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lcwd.electronic.store.dtos.PageableResponse;
 import com.lcwd.electronic.store.dtos.UserDto;
 import com.lcwd.electronic.store.entities.User;
+import com.lcwd.electronic.store.services.FileServiceI;
 import com.lcwd.electronic.store.services.UserServiceI;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +17,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
+import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -39,6 +45,9 @@ class UserControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Autowired
+    private FileServiceI fileServiceI;
 
     private User user;
 
@@ -153,7 +162,7 @@ return null;
         pageableResponse.setLastPage(false);
 
         Mockito.when(userServiceI.getAllUser(Mockito.anyInt(),Mockito.anyInt(),Mockito.anyString(),Mockito.anyString())).thenReturn(pageableResponse);
-    mockMvc.perform(MockMvcRequestBuilders.get("/users/")
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/")
             .contentType(MediaType.APPLICATION_JSON)
             .accept(MediaType.APPLICATION_JSON))
             .andDo(print())
@@ -191,11 +200,93 @@ return null;
                                 .accept(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());
+
                 //.andExpect(jsonPath("$.email").exists());
 
     }
 
     @Test
-    void getUserByKeyword() {
+    void getUserByKeyword() throws Exception{
+        UserDto userDto1 = UserDto.builder().userId(UUID.randomUUID().toString())
+                .gender("male")
+                .name("Akki")
+                .about("I am an java developer")
+                .password("123")
+                .email("akki123@gmail.com")
+                .imageName("ak.png").build();
+
+        UserDto userDto2 = UserDto.builder().userId(UUID.randomUUID().toString())
+                .gender("male")
+                .name("Sandip")
+                .about("I am an tester")
+                .password("456")
+                .email("san123@gmail.com")
+                .imageName("sn.png").build();
+
+        UserDto userDto3 = UserDto.builder().userId(UUID.randomUUID().toString())
+                .gender("male")
+                .name("Rahul")
+                .about("I am an java developer")
+                .password("898")
+                .email("rahul123@gmail.com")
+                .imageName("rk.png").build();
+
+        List list=new ArrayList();
+        list.add(userDto1);
+        list.add(userDto2);
+        list.add(userDto3);
+
+        String keyword="a";
+
+        Mockito.when(userServiceI.searchUser(Mockito.anyString())).thenReturn(list);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/search/"+keyword)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+
+
+    }
+
+    @Test
+    void uploadUserImageTest() throws Exception {
+        String fileName="abc.png";
+        String filePath="image/users";
+        String userId=UUID.randomUUID().toString();
+
+        Mockito.when(fileServiceI.uploadFile(Mockito.any(),Mockito.anyString())).thenReturn(fileName);
+
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+        Mockito.when(userServiceI.getUserById(Mockito.anyString())).thenReturn(userDto);
+        userDto.setImageName(fileName);
+
+        Mockito.when(userServiceI.updateUser(userDto,userId)).thenReturn(userDto);
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/users/image/"+userId)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isCreated());
+
+    }
+    @Test
+    void serveUserImageTest() throws Exception {
+        String imagePath="image/users/";
+        String userId=UUID.randomUUID().toString();
+
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+        Mockito.when(userServiceI.getUserById(userId)).thenReturn(userDto);
+
+        InputStream resource=new FileInputStream(userDto.getImageName());
+        Mockito.when(fileServiceI.getResource(Mockito.anyString(),Mockito.anyString())).thenReturn(resource);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/image/" + userId)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect((ResultMatcher) content().contentType(MediaType.IMAGE_JPEG_VALUE))
+                .andExpect(status().isOk())
+                .andReturn().getResponse();
+
+
     }
 }
