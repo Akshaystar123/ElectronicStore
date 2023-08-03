@@ -1,6 +1,7 @@
 package com.lcwd.electronic.store.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lcwd.electronic.store.dtos.PageableResponse;
 import com.lcwd.electronic.store.dtos.UserDto;
 import com.lcwd.electronic.store.entities.User;
 import com.lcwd.electronic.store.services.UserServiceI;
@@ -18,6 +19,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
+import java.util.Arrays;
 import java.util.UUID;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -114,8 +116,48 @@ return null;
     }
 
     @Test
-    void getAllUsers() {
+    void getAllUsers() throws Exception {
 
+        UserDto userDto1 = UserDto.builder().userId(UUID.randomUUID().toString())
+                .gender("male")
+                .name("Akki")
+                .about("I am an java developer")
+                .password("123")
+                .email("akki123@gmail.com")
+                .imageName("ak.png").build();
+
+        UserDto userDto2 = UserDto.builder().userId(UUID.randomUUID().toString())
+                .gender("male")
+                .name("Sandip")
+                .about("I am an tester")
+                .password("456")
+                .email("san123@gmail.com")
+                .imageName("sn.png").build();
+
+        UserDto userDto3 = UserDto.builder().userId(UUID.randomUUID().toString())
+                .gender("male")
+                .name("Rahul")
+                .about("I am an java developer")
+                .password("898")
+                .email("rahul123@gmail.com")
+                .imageName("rk.png").build();
+
+
+        PageableResponse<UserDto> pageableResponse=new PageableResponse<>();
+
+        pageableResponse.setContent(Arrays.asList(userDto1,userDto2,userDto3));
+        pageableResponse.setPageNumber(0);
+        pageableResponse.setPageSize(2);
+        pageableResponse.setTotalElements(50);
+        pageableResponse.setTotalPages(100);
+        pageableResponse.setLastPage(false);
+
+        Mockito.when(userServiceI.getAllUser(Mockito.anyInt(),Mockito.anyInt(),Mockito.anyString(),Mockito.anyString())).thenReturn(pageableResponse);
+    mockMvc.perform(MockMvcRequestBuilders.get("/users/")
+            .contentType(MediaType.APPLICATION_JSON)
+            .accept(MediaType.APPLICATION_JSON))
+            .andDo(print())
+            .andExpect(status().isOk());
 
     }
 
