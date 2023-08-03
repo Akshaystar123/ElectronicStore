@@ -1,6 +1,7 @@
 package com.lcwd.electronic.store.services.Impl;
 
 import com.lcwd.electronic.store.dtos.CategoryDto;
+import com.lcwd.electronic.store.dtos.PageableResponse;
 import com.lcwd.electronic.store.entities.Category;
 import com.lcwd.electronic.store.repositories.CategoryrepositoryI;
 import org.junit.jupiter.api.Assertions;
@@ -11,6 +12,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.data.domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,10 +94,33 @@ class CategoryServiceImplTest {
     @Test
     void delete() {
 
+        String categoryId = UUID.randomUUID().toString();
+
+        Mockito.when(categoryRepositoryI.findById(categoryId)).thenReturn(Optional.of(category1));
+
+        categorySeviceImpl.delete(categoryId);
+
+        Mockito.verify(categoryRepositoryI,Mockito.times(1)).delete(category1);
+
     }
 
     @Test
     void getAll() {
+
+        int pageNumber=0;
+        int pageSize=2;
+        String sortBy="title";
+        String sortDir="asc";
+        Sort sort= Sort.by(sortBy).ascending();
+        Pageable pageable= PageRequest.of(pageNumber,pageSize,sort);
+
+        Page<Category> page=new PageImpl<>(categories);
+
+        Mockito.when(categoryRepositoryI.findAll(pageable)).thenReturn(page);
+
+        PageableResponse<CategoryDto> allCategories = categorySeviceImpl.getAll(pageNumber, pageSize, sortBy, sortDir);
+
+        Assertions.assertEquals(2,allCategories.getContent().size());
     }
 
     @Test
