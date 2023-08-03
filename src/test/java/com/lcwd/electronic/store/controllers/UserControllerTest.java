@@ -162,7 +162,19 @@ return null;
     }
 
     @Test
-    void getUserById() {
+    void getUserById() throws Exception{
+
+        String userId = UUID.randomUUID().toString();
+
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+
+        Mockito.when(userServiceI.getUserById(userId)).thenReturn(userDto);
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/users/" +userId)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+                //.andExpect(jsonPath("$.name").exists());
     }
 
     @Test
