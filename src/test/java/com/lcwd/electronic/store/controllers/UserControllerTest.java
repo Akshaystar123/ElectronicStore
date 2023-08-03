@@ -16,12 +16,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.UUID;
 
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -87,17 +85,38 @@ return null;
         }
     }
 
-
     @Test
-    void updateUser() {
+    void updateUser() throws  Exception{
+
+        String userId = UUID.randomUUID().toString();
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+        Mockito.when(userServiceI.updateUser(userDto, userId)).thenReturn(userDto);
+
+        mockMvc.perform(MockMvcRequestBuilders.put("/users/"+userId)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(convertObjectToJsonString(user))
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk());
+
     }
 
     @Test
-    void deleteUser() {
+    void deleteUser() throws  Exception{
+        String userId = UUID.randomUUID().toString();
+        UserDto userDto = modelMapper.map(user, UserDto.class);
+
+
+        mockMvc.perform(MockMvcRequestBuilders.delete("/users/"+userId)
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
     }
 
     @Test
     void getAllUsers() {
+
+
     }
 
     @Test
