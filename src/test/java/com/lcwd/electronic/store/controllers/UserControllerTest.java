@@ -251,7 +251,7 @@ return null;
 
     @Test
     void uploadUserImageTest() throws Exception {
-        String fileName="abc.png";
+        String fileName="abb.png";
         String filePath="image/users";
         String userId=UUID.randomUUID().toString();
 

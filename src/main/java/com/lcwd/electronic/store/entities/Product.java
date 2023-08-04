@@ -11,6 +11,7 @@ import java.util.Date;
 @ToString
 @Entity
 @Table(name = "Products")
+@Builder
 public class Product {
 @Id
 private String productId;
